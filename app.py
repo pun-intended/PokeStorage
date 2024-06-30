@@ -25,7 +25,7 @@ db.create_all()
 seed_users()
 
 CURR_USER_KEY = "curr_user"
-ADDED = True
+ADDED = False
 URL = "https://pogoapi.net/api/v1/"
 tag = "pokemon_names.json"
 
@@ -52,6 +52,7 @@ def setup():
     add_user_to_g()
     if not ADDED:
         helper.populate_pokemon()
+        ADDED = True
 
 @app.route('/')
 def landing_page():
